@@ -214,7 +214,7 @@ export default function App() {
 
   // 今の階の盤面が画面中央に来るように全体を下げる
   const stageStyle = {
-    transform: `translateY(${(viewTop + 1) * SCREEN_PER_FLOOR}px) rotateX(60deg) rotateZ(45deg)`,
+    transform: `translateY(${SCREEN_PER_FLOOR}px) rotateX(60deg) rotateZ(45deg) translateZ(${-viewTop * FLOOR_H}px)`,
   };
   const sceneVars = { "--board": `${BOARD}px`, "--floor-h": `${FLOOR_H}px` };
 

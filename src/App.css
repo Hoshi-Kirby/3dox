@@ -203,22 +203,35 @@
 }
 
 /* 星は小さな点を1タイル分だけ描き、繰り返す（無限に描かなくてよい） */
+/* 夜空の星：小さな点を1タイル分描き、タイルを繰り返す */
 .stars {
   position: absolute;
   inset: 0;
-  opacity: 0;
-  transition: opacity 1.2s ease;
-  background-image:
-    radial-gradient(1px 1px at 20px 30px, #fff, transparent),
-    radial-gradient(1px 1px at 120px 80px, #cdd8ff, transparent),
-    radial-gradient(1.5px 1.5px at 60px 150px, #fff, transparent);
-  background-size: 200px 200px;
-}
-.backdrop.night .stars {
-  opacity: 0.4;
-}
-.backdrop.space .stars {
   opacity: 1;
+  background-image:
+    radial-gradient(1px 1px at 20px 30px, #ffffff, transparent),
+    radial-gradient(1px 1px at 90px 120px, #dfe8ff, transparent),
+    radial-gradient(1.5px 1.5px at 160px 60px, #ffffff, transparent),
+    radial-gradient(1px 1px at 230px 180px, #cfe0ff, transparent),
+    radial-gradient(1px 1px at 300px 90px, #ffffff, transparent),
+    radial-gradient(1.5px 1.5px at 60px 220px, #ffffff, transparent),
+    radial-gradient(1px 1px at 180px 260px, #dfe8ff, transparent),
+    radial-gradient(1px 1px at 270px 300px, #ffffff, transparent),
+    radial-gradient(2px 2px at 120px 10px, #fff6d8, transparent),
+    radial-gradient(1px 1px at 330px 240px, #ffffff, transparent);
+  background-size: 360px 360px;
+  animation: twinkle 5s ease-in-out infinite;
+}
+
+/* 星の一部が瞬くように、透明度を少し変える */
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
 }
 
 /* 等角図の地面。stage と一緒に傾き、下がるので盤面とずれない */
